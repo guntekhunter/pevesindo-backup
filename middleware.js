@@ -1,19 +1,22 @@
-// middleware.js
-import { NextResponse } from 'next/server'
+import { NextResponse } from 'next/server';
 
 export function middleware(request) {
     const url = request.nextUrl;
 
-    // If path is already '/', do nothing
-    if (url.pathname === '/') {
+    // Allow next.js internals, static files, API routes, etc. without redirect
+    if (
+        url.pathname.startsWith('/_next') ||  // next.js internals (css/js/images)
+        url.pathname.startsWith('/api') ||    // api routes
+        url.pathname === '/'                   // root page, no redirect
+    ) {
         return NextResponse.next();
     }
 
-    // Redirect all other paths to root '/'
+    // Redirect all other paths to root
     url.pathname = '/';
     return NextResponse.redirect(url, 302);
 }
 
 export const config = {
-    matcher: '/:path*', // match all routes including root
+    matcher: '/:path*', // apply to all routes
 };
