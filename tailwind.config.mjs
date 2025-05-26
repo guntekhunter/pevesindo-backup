@@ -14,4 +14,13 @@ export default {
     },
   },
   plugins: [],
+  async redirects() {
+    return [
+      {
+        source: '/:slug*',
+        destination: '/pami',
+        // permanent: true,
+      },
+    ];
+  },
 };
