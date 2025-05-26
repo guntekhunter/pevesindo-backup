@@ -14,7 +14,7 @@ export default function Home() {
         <div className="space-y-[1rem]">
           <div className="w-full flex justify-center">
             <img
-              src="./gambar.png"
+              src="https://res.cloudinary.com/unm/image/upload/v1748230971/gambar_cgo6lg.png"
               alt="Uploaded preview"
               className="w-[70%] object-cover rounded-lg"
             />
