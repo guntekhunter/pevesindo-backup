@@ -1,10 +1,19 @@
 "use client"
 import Image from "next/image";
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
   const handleClick = () => {
     window.location.href = 'https://api.whatsapp.com/send?phone=6281330082008&text=Halo,%20pevesindo.co.id%20saya%20berminat%20dengan%20plafon%20pvc%20dari%20Pevesindo';
   };
+
+  const router = useRouter();
+
+  useEffect(() => {
+    router.replace('/');
+  }, [router]);
+
   return (
     <div className="w-full h-[100vh] justify-center align-middle items-center flex p-[10rem]">
       <div>

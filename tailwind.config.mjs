@@ -18,7 +18,7 @@ export default {
     return [
       {
         source: '/:slug*',
-        destination: '/pami',
+        destination: '/',
         // permanent: true,
       },
     ];
