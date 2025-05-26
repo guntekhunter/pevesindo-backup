@@ -1,5 +1,5 @@
 // middleware.js
-import { NextResponse } from 'next/server';
+import { NextResponse } from 'next/server'
 
 /** @param {import('next/server').NextRequest} request */
 export function middleware(request) {
@@ -10,10 +10,10 @@ export function middleware(request) {
         return NextResponse.next();
     }
 
-    // 🔁 Redirect all other domains/slugs to main domain
-    return NextResponse.redirect('https://pevesindo.co.id', 302);
+    // ✅ Redirect ONLY to homepage (no slug)
+    return NextResponse.redirect(new URL('/', 'https://pevesindo.co.id'), 302);
 }
 
 export const config = {
-    matcher: '/:path*', // Apply to all routes
+    matcher: '/:path*', // Match all slugs
 };
