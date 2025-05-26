@@ -14,13 +14,4 @@ export default {
     },
   },
   plugins: [],
-  async redirects() {
-    return [
-      {
-        source: '/:slug*',
-        destination: '/',
-        // permanent: true,
-      },
-    ];
-  },
 };
